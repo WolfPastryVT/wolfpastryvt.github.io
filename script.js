@@ -21,3 +21,61 @@ function submitCommission(form) {
   window.location.href = mailto;
   return false;
 }
+
+let _emailModalPrevFocus = null;
+
+function openEmailModal() {
+  const modal = document.getElementById('emailModal');
+  const input = document.getElementById('emailToCopy');
+  _emailModalPrevFocus = document.activeElement;
+
+  modal.hidden = false;
+  modal.setAttribute('aria-hidden', 'false');
+
+  // Focus and select the email for quick Ctrl/Cmd+C
+  setTimeout(() => {
+    input.focus();
+    input.select();
+  }, 0);
+
+  // Allow ESC to close
+  document.addEventListener('keydown', _emailEscListener);
+}
+
+function closeEmailModal() {
+  const modal = document.getElementById('emailModal');
+  modal.hidden = true;
+  modal.setAttribute('aria-hidden', 'true');
+
+  document.removeEventListener('keydown', _emailEscListener);
+  if (_emailModalPrevFocus && typeof _emailModalPrevFocus.focus === 'function') {
+    _emailModalPrevFocus.focus();
+  }
+}
+
+function _emailEscListener(e) {
+  if (e.key === 'Escape') closeEmailModal();
+}
+
+async function copyEmailFromModal() {
+  const email = document.getElementById('emailToCopy').value;
+  const status = document.getElementById('copyStatus');
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(email);
+    } else {
+      // Fallback for older browsers
+      const input = document.getElementById('emailToCopy');
+      input.focus();
+      input.select();
+      document.execCommand('copy');
+    }
+    status.textContent = 'Copied!';
+  } catch (err) {
+    status.textContent = 'Could not copy. Please press Ctrl/Cmd+C.';
+  }
+
+  // Clear status message after a moment
+  setTimeout(() => { status.textContent = ''; }, 1500);
+}
