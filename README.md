@@ -1,6 +1,6 @@
-# WolfPastry Studio — Static Site Starter
+# WolfPastry Studio
 
-Edit in **Notepad++**, preview by double‑clicking `index.html`, and deploy with any static host.
+Portfolio + stream hub + commisions site for # WolfPastryVT.
 
 ## Files
 - `index.html` — your pages/sections
