@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WolfPastry Studio</title>
+  <meta name="description" content="Portfolio, commissions, and stream hub for WolfPastryVT.">
+  <meta property="og:title" content="WolfPastry Studio">
+  <meta property="og:description" content="Art portfolio, VTuber hub, and commissions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/cover.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/logo.png" alt="WolfPastry Studio logo" class="logo" onerror="this.style.display='none'">
+      <h1>WolfPastry Studio</h1>
+      <p class="tagline">Art ✦ Streaming ✦ Commissions</p>
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">☰</button>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#art">Art</a></li>
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="#stream">Stream</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <h2>Welcome to WolfPastry Studio</h2>
+        <p>Your one‑stop hub for my VTuber content and freelance art.</p>
+        <div class="cta-group">
+          <a class="btn" href="#commissions">Open Commissions</a>
+          <a class="btn secondary" href="#art">View Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="art" class="section">
+      <h3>Gallery</h3>
+      <p>Add your pieces to <code>assets/art/</code> and list them below.</p>
+      <div class="grid gallery" id="gallery">
+        <!-- Example items; duplicate and replace sources -->
+        <figure class="card">
+          <img src="assets/art/sample1.jpg" alt="Sample art 1" loading="lazy">
+          <figcaption>Sample Art #1 — Emote Pack</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="assets/art/sample2.jpg" alt="Sample art 2" loading="lazy">
+          <figcaption>Sample Art #2 — Stream Panels</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="commissions" class="section">
+      <h3>Commissions</h3>
+      <div class="grid two">
+        <div>
+          <h4>Pricing</h4>
+          <ul class="pricing">
+            <li><strong>Emotes:</strong> $XX each / $XX bundle</li>
+            <li><strong>Panels:</strong> $XX per set</li>
+            <li><strong>Character Illustration:</strong> $XX+</li>
+            <li><strong>Live2D Art (PSD):</strong> $XX+</li>
+          </ul>
+          <p><em>Turnaround times</em> vary by scope and queue. See TOS below.</p>
+          <details>
+            <summary>Terms of Service</summary>
+            <ul>
+              <li>No refunds after sketch approval.</li>
+              <li>Commercial use/licensing available.</li>
+              <li>Credit "WolfPastry Studio" when used publicly.</li>
+              <li>Contact for rush orders.</li>
+            </ul>
+          </details>
+        </div>
+        <div>
+          <h4>Request a Commission</h4>
+          <form id="commissionForm" class="form" onsubmit="return submitCommission(this)">
+            <label>
+              Your Name
+              <input required name="name" type="text" placeholder="Your display name">
+            </label>
+            <label>
+              Email
+              <input required name="email" type="email" placeholder="you@example.com">
+            </label>
+            <label>
+              Commission Type
+              <select name="type" required>
+                <option value="">Choose one</option>
+                <option>Emote</option>
+                <option>Panels</option>
+                <option>Illustration</option>
+                <option>Live2D Art</option>
+              </select>
+            </label>
+            <label>
+              Details / References
+              <textarea name="details" rows="5" placeholder="Describe your request and include links."></textarea>
+            </label>
+            <button class="btn" type="submit">Send Request</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+          <p class="note">This sample form uses a mailto fallback by default. You can later wire it to a serverless function or backend.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stream" class="section">
+      <h3>Stream Hub</h3>
+      <div class="grid two">
+        <div>
+          <h4>Schedule</h4>
+          <ul>
+            <li>Tue · 8 PM ET — Cozy art stream</li>
+            <li>Fri · 9 PM ET — Game night</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Live Embed</h4>
+          <div class="embed">
+            <!-- Replace with your Twitch/YouTube embed -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Stream highlight" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h3>About</h3>
+      <p>Hey! I'm <strong>WolfPastryVT</strong>—a streamer and freelance artist. I love winter wolf vibes, moon motifs, and cozy communities. This site is my studio HQ.</p>
+      <ul class="about-list">
+        <li><strong>Tools:</strong> Clip Studio / Photoshop / Live2D / VSCode</li>
+        <li><strong>Rig:</strong> CPU/GPU specs here</li>
+        <li><strong>Socials:</strong> Add links below</li>
+      </ul>
+      <div class="socials">
+        <a href="#" aria-label="Twitch">Twitch</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="X/Twitter">X</a>
+        <a href="#" aria-label="Bluesky">Bluesky</a>
+        <a href="#" aria-label="Ko-fi">Ko‑fi</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:hello@wolfpastryvt.com">hello@wolfpastryvt.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> WolfPastry Studio • All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
