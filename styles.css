@@ -79,36 +79,4 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .socials { display: flex; gap: 10px; flex-wrap: wrap; }
 .socials a { background: #1a2230; padding: 8px 12px; border-radius: 999px; border: 1px solid #273141; }
 
-.modal[hidden] { display: none !important; }
-
-.modal {
-  position: fixed; inset: 0; z-index: 1000;
-}
-
-.modal-backdrop {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(2px);
-}
-
-.modal-dialog {
-  position: relative; margin: 10vh auto 0; max-width: 520px;
-  background: var(--card); color: var(--text);
-  border: 1px solid #223049; border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-
-.copy-row {
-  display: grid; grid-template-columns: 1fr auto; gap: 10px; margin: 14px 0;
-}
-
-.copy-row input {
-  width: 100%;
-  padding: 10px 12px; border-radius: 10px;
-  border: 1px solid #273141; background: #0f141c; color: var(--text);
-}
-
-.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
-
 .site-footer { padding: 20px; text-align: center; color: var(--muted); border-top: 1px solid #1d2530; }
