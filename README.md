@@ -1,6 +1,6 @@
 # WolfPastry Studio
 
-Portfolio + stream hub + commisions site for # WolfPastryVT.
+Portfolio + stream hub + commisions site for **WolfPastryVT**.
 
 ## Files
 - `index.html` — your pages/sections
