@@ -13,7 +13,7 @@ function submitCommission(form) {
   const type = encodeURIComponent(data.get('type'));
   const details = encodeURIComponent(data.get('details'));
   // Mailto fallback: replace with your business email
-  const to = 'hello@wolfpastryvt.com';
+  const to = 'hello@wolfpastrystudio.com';
   const subject = encodeURIComponent(`[Commission] ${decodeURIComponent(type)} — ${decodeURIComponent(name)}`);
   const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\nType: ${decodeURIComponent(type)}\n\nDetails:\n${decodeURIComponent(details)}`);
   const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
