@@ -94,3 +94,23 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 
 /* Active nav */
 .nav-list a.active { background: #1a2230; outline: 2px solid var(--accent); }
+
+/* About page split layout */
+.about-split {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .about-split { grid-template-columns: 1fr; }
+}
+
+.signature-box {
+  background: #0f141c;
+  border: 1px solid #273141;
+  border-radius: 12px;
+  padding: 12px;
+}
+.signature-box img { width: 100%; height: auto; display: block; }
+.signature-box .caption { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
