@@ -95,23 +95,31 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 /* Active nav */
 .nav-list a.active { background: #1a2230; outline: 2px solid var(--accent); }
 
-/* About split layout: text | image */
+/* About split: text | image (flex version) */
 .about-split {
-  display: grid;
-  grid-template-columns: 1fr 340px; /* left: text grows, right: fixed card */
+  display: flex;
   gap: 24px;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .about-split { grid-template-columns: 1fr; }
+  align-items: flex-start;
 }
 
-/* Signature card on the right */
+.about-main { 
+  flex: 1 1 0; 
+  min-width: 0; /* prevents text from pushing the image down */
+}
+
+/* Fixed width card for the image on the right */
 .signature-card {
+  flex: 0 0 340px;          /* <- adjust width here */
   background: var(--card);
   border: 1px solid #223049;
   border-radius: 12px;
   padding: 12px;
 }
-.signature-card img { width: 100%; height: auto; display: block; }
+.signature-card img { max-width: 100%; height: auto; display: block; }
 .signature-card .caption { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+
+/* Stack only on small screens */
+@media (max-width: 700px) {
+  .about-split { flex-direction: column; }
+  .signature-card { flex-basis: auto; width: 100%; }
+}
