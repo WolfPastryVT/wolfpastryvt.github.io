@@ -123,3 +123,13 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
   .about-split { flex-direction: column; }
   .signature-card { flex-basis: auto; width: 100%; }
 }
+
+/* Section layout & sidebar */
+.section-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 16px; }
+@media (max-width: 900px) { .section-wrap { grid-template-columns: 1fr; } }
+
+.section-nav { background: var(--card); border: 1px solid #223049; border-radius: 12px; padding: 12px; }
+.section-nav h4 { margin: 0 0 8px; }
+.section-nav a { display: block; padding: 8px 10px; border-radius: 8px; color: var(--text); text-decoration: none; }
+.section-nav a:hover { background: #1a2230; }
+.section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
