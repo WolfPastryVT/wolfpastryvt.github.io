@@ -69,3 +69,12 @@ async function copyEmailFromModal() {
   } catch(e) { if (status) status.textContent = 'Could not copy. Press Ctrl/Cmd+C.'; }
   setTimeout(() => { if (status) status.textContent = ''; }, 1500);
 }
+
+// Highlight current link in section sidebar (.section-nav)
+(function () {
+  const path = location.pathname.replace(/index\.html$/, '');
+  document.querySelectorAll('.section-nav a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && path.startsWith(href)) a.classList.add('active');
+  });
+})();
