@@ -1,1 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art • Stream Assets — WolfPastry Studio</title>
+  <meta name="description" content="Streaming Assets by WolfPastry Studio." />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/favicon.ico" />
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="../../assets/logo.png" alt="WolfPastry Studio logo" class="logo" onerror="this.style.display='none'">
+    <h1>WolfPastry Studio</h1>
+    <p class="tagline">Art ✦ Streaming ✦ Commissions</p>
+  </div>
+  <nav class="nav" id="nav">
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">☰</button>
+    <ul class="nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/art/">Art</a></li>
+      <li><a href="/commissions/">Commissions</a></li>
+      <li><a href="/stream/">Stream</a></li>
+      <li><a href="/merch/">Merch</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="section-wrap">
+    <aside class="section-nav">
+      <h4>Art</h4>
+      <a href="/art/">Overview</a>
+      <a href="/art/illustrations/">Illustrations</a>
+      <a href="/art/emotes/">Emotes</a>
+      <a href="/art/assets/">Stream Assets</a>
+      <a href="/art/miscellaneous/">Other Services</a>
+      <a href="/art/fanart/">Fanart Received</a>
+    </aside>
+
+    <div>
+      <h3>Stream Assets</h3>
+      <p class="note">Add PNGs to <code>assets/art/emotes/</code> and reference them below.</p>
+
+      <div class="grid gallery">
+        <figure class="card">
+          <img src="../../assets/art/emotes/sample1.png" alt="Happy emote" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Moon — Twitch Badge set for @example</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="../../assets/art/emotes/sample2.png" alt="Cozy emote" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Cozy — Panel set</figcaption>
+        </figure>
+        <!-- Duplicate figure blocks for each piece -->
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> WolfPastry Studio • All rights reserved.</p>
+</footer>
+<script src="../../script.js"></script>
+</body>
+</html>
+
 
