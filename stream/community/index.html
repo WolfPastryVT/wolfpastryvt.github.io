@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stream • Community — WolfPastry Studio</title>
+  <meta name="description" content="Community info, Discord, shout-outs, and where I mod/admin." />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" href="/assets/favicon.ico" />
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="/assets/logo.png" alt="WolfPastry Studio logo" class="logo" onerror="this.style.display='none'">
+    <h1>WolfPastry Studio</h1>
+    <p class="tagline">Art ✦ Streaming ✦ Commissions</p>
+  </div>
+  <nav class="nav" id="nav">
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">☰</button>
+    <ul class="nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/art/">Art</a></li>
+      <li><a href="/commissions/">Commissions</a></li>
+      <li><a href="/stream/">Stream</a></li>
+      <li><a href="/merch/">Merch</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="section-wrap">
+    <!-- Sidebar -->
+    <aside class="section-nav">
+      <h4>Stream</h4>
+      <a href="/stream/">Overview</a>
+      <a href="/stream/community/">Community</a>
+      <!-- Add more later, e.g.: <a href="/stream/clips/">Clips</a> -->
+    </aside>
+
+    <!-- Content -->
+    <div>
+      <h3 class="text-brand-gradient">Community</h3>
+
+      <section style="margin-bottom:20px;">
+        <h4>Join the Pack</h4>
+        <p>Come hang out, share art, and vibe with the community.</p>
+        <div class="cta-group">
+          <!-- Replace with your real Discord invite -->
+          <a class="btn" href="https://discord.gg/fGeJcDzVx7" target="_blank" rel="noopener">Join Discord</a>
+          <a class="btn secondary" href="https://twitch.tv/WolfPastryVT" target="_blank" rel="noopener">Follow on Twitch</a>
+        </div>
+
+        <!-- Optional Discord server widget (enable "Server Widget" in Discord settings and set your server ID) -->
+        <div class="card" style="padding:0; margin-top:14px;">
+          <iframe src="https://discord.com/widget?id=1179454143115563090&theme=dark" width="100%" height="350" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+      </section>
+
+      <section style="margin-bottom:20px;">
+        <h4>Community Guidelines</h4>
+        <ul>
+          <li>Be kind and respectful — no harassment, hate speech, or slurs.</li>
+          <li>No spoilers without tags; keep channels on-topic.</li>
+          <li>Listen to Mods/Admins; if asked to stop, please do.</li>
+          <li>Follow Discord ToS at all times.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom:20px;">
+        <h4>Send Love To</h4>
+        <p class="note">Creators, friends, and communities I appreciate — check them out!</p>
+        <div class="grid gallery">
+          <!-- Duplicate figure blocks for each shout-out -->
+          <a class="card" href="https://twitch.tv/example1" target="_blank" rel="noopener" style="text-decoration:none;">
+            <figure>
+              <img src="../../assets/cover.png" alt="Creator 1" loading="lazy" onerror="this.style.display='none'">
+              <figcaption><strong>Creator 1</strong> — Cozy variety streamer</figcaption>
+            </figure>
+          </a>
+          <a class="card" href="https://bsky.app/profile/example" target="_blank" rel="noopener" style="text-decoration:none;">
+            <figure>
+              <img src="../../assets/cover.png" alt="Artist 2" loading="lazy" onerror="this.style.display='none'">
+              <figcaption><strong>Artist 2</strong> — Emotes & panels</figcaption>
+            </figure>
+          </a>
+        </div>
+      </section>
+
+      <section style="margin-bottom:20px;">
+        <h4>Where I Mod / Admin</h4>
+        <div class="grid two">
+          <div class="card" style="padding:16px;">
+            <h5 style="margin-top:0;">Twitch</h5>
+            <ul>
+              <!-- Replace with real channels -->
+              <li><a href="https://twitch.tv/streamerA" target="_blank" rel="noopener">StreamerA</a> — Moderator</li>
+              <li><a href="https://twitch.tv/streamerB" target="_blank" rel="noopener">StreamerB</a> — Moderator</li>
+            </ul>
+          </div>
+          <div class="card" style="padding:16px;">
+            <h5 style="margin-top:0;">Discord</h5>
+            <ul>
+              <!-- Replace with real servers -->
+              <li><a href="https://discord.gg/invite1" target="_blank" rel="noopener">Server A</a> — Admin</li>
+              <li><a href="https://discord.gg/invite2" target="_blank" rel="noopener">Server B</a> — Moderator</li>
+            </ul>
+            <p class="note" style="margin-top:8px;">Want your server listed? DM me with your role & invite link.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>Credits & Support</h4>
+        <p>Art, overlays, and assets will be credited on the <a href="/model/">Model</a> page and/or post captions. Thank you for supporting the pack ♡</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> WolfPastry Studio • All rights reserved.</p>
+</footer>
+<script src="../../script.js"></script>
+</body>
+</html>
