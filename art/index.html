@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Art • WolfPastry Studio</title>
-  <meta name="description" content="Art gallery by WolfPastryVT." />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="icon" href="/assets/favicon.ico" />
+  <title>Art • Other Services — WolfPastry Studio</title>
+  <meta name="description" content="Other Services by WolfPastry Studio." />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/favicon.ico" />
 </head>
 <body>
 <header class="site-header">
   <div class="brand">
-    <img src="/assets/logo.png" alt="WolfPastry Studio logo" class="logo" onerror="this.style.display='none'">
+    <img src="../../assets/logo.png" alt="WolfPastry Studio logo" class="logo" onerror="this.style.display='none'">
     <h1>WolfPastry Studio</h1>
     <p class="tagline">Art ✦ Streaming ✦ Commissions</p>
   </div>
@@ -29,38 +29,40 @@
   </nav>
 </header>
 
-<main>
-  <section class="section">
-  <h3>Art Categories</h3>
-  <div class="grid gallery">
-    <a class="card" href="/art/illustrations/" style="text-decoration:none;">
-      <figure><img src="../assets/cover.png" alt="" loading="lazy" onerror="this.style.display='none'">
-      <figcaption><strong>Illustrations</strong> — Character art, scenes</figcaption></figure>
-    </a>
-    <a class="card" href="/art/emotes/" style="text-decoration:none;">
-      <figure><img src="../assets/cover.png" alt="" loading="lazy" onerror="this.style.display='none'">
-      <figcaption><strong>Emotes</strong> — Twitch/Discord sets</figcaption></figure>
-    </a>
-    <a class="card" href="/art/assets/" style="text-decoration:none;">
-      <figure><img src="../assets/cover.png" alt="" loading="lazy" onerror="this.style.display='none'">
-      <figcaption><strong>Assets</strong> — Stream assets</figcaption></figure>
-    </a>
-    <a class="card" href="/art/miscellaneous/" style="text-decoration:none;">
-      <figure><img src="../assets/cover.png" alt="" loading="lazy" onerror="this.style.display='none'">
-      <figcaption><strong>Other Services</strong> — MC Skins, Discord Servers, etc.</figcaption></figure>
-    </a>
-    <a class="card" href="/art/fanart/" style="text-decoration:none;">
-      <figure><img src="../assets/cover.png" alt="" loading="lazy" onerror="this.style.display='none'">
-      <figcaption><strong>Fanart Received</strong> — Community love ♡</figcaption></figure>
-    </a>
+<main class="section">
+  <div class="section-wrap">
+    <aside class="section-nav">
+      <h4>Art</h4>
+      <a href="/art/">Overview</a>
+      <a href="/art/illustrations/">Illustrations</a>
+      <a href="/art/emotes/">Emotes</a>
+      <a href="/art/assets/">Stream Assets</a>
+      <a href="/art/miscellaneous/">Other Services</a>
+      <a href="/art/fanart/">Fanart Received</a>
+    </aside>
+
+    <div>
+      <h3>Other Services</h3>
+      <p class="note">Add PNGs to <code>assets/art/emotes/</code> and reference them below.</p>
+
+      <div class="grid gallery">
+        <figure class="card">
+          <img src="../../assets/sample1.png" alt="Happy emote" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>MC Skin for @example</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="../../assets/sample2.png" alt="Cozy emote" loading="lazy" onerror="this.style.display='none'">
+          <figcaption>Carrd</figcaption>
+        </figure>
+        <!-- Duplicate figure blocks for each piece -->
+      </div>
+    </div>
   </div>
-</section>
 </main>
 
 <footer class="site-footer">
   <p>© <span id="year"></span> WolfPastry Studio • All rights reserved.</p>
 </footer>
-
-<script src="../script.js"></script>
+<script src="../../script.js"></script>
 </body>
 </html>
