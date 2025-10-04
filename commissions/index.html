@@ -63,36 +63,6 @@
             </ul>
           </details>
         </div>
-        <div>
-          <h4>Request a Commission</h4>
-          <form id="commissionForm" class="form" onsubmit="return submitCommission(this)">
-            <label>
-              Your Name
-              <input required name="name" type="text" placeholder="Your display name">
-            </label>
-            <label>
-              Email
-              <input required name="email" type="email" placeholder="you@example.com">
-            </label>
-            <label>
-              Commission Type
-              <select name="type" required>
-                <option value="">Choose one</option>
-                <option>Illustrations</option>
-                <option>Emotes</option>
-                <option>Stream Assets</option>
-                <option>Other Services</option>
-              </select>
-            </label>
-            <label>
-              Details / References
-              <textarea name="details" rows="5" placeholder="Describe your request and include links."></textarea>
-            </label>
-            <button class="btn" type="submit">Send Request</button>
-            <p class="form-status" id="formStatus" aria-live="polite"></p>
-          </form>
-          <p class="note">This sample form uses a mailto fallback by default. You can later wire it to a serverless function or backend.</p>
-        </div>
       </div>
     </div>
   </div>
