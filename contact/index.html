@@ -32,7 +32,15 @@
 <main>
   <section class="section">
     <h3>Contact</h3>
-    <form class="form" onsubmit="return submitContact(this)">
+   <form action="https://api.web3forms.com/submit" method="POST" class="form">
+  <!-- Required -->
+  <input type="hidden" name="access_key" value="c77f04c8-c6f1-44ee-b4d1-7c0a3c0b0357">
+  <input type="hidden" name="from_name" value="WolfPastry Studio Site">
+  <input type="hidden" name="subject" value="[Inquiry] WolfPastry Studio">
+  <input type="hidden" name="redirect" value="https://wolfpastrystudio.com/thanks/">
+  <!-- Honeypot (spam protection) -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none !important" tabindex="-1" autocomplete="off">
+
   <label>
     Your Name
     <input name="name" type="text" required placeholder="Your display name">
@@ -60,6 +68,7 @@
   <button class="btn" type="submit">Send</button>
   <p id="contactStatus" class="form-status" aria-live="polite"></p>
 </form>
+<p class="note" style="margin-top:8px;">By submitting, you consent to receive an email reply regarding your request.</p>
 
   </section>
 </main>
