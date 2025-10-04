@@ -9,21 +9,79 @@ document.addEventListener('DOMContentLoaded', () => {
   if (y) y.textContent = new Date().getFullYear();
 });
 
+// --- Contact aliases (edit if you change addresses)
+const CONTACT_ALIASES = {
+  hello: 'hello@wolfpastrystudio.com',
+  commissions: 'commissions@wolfpastrystudio.com',
+  merch: 'merch@wolfpastrystudio.com'
+};
+
+// Build and launch a mailto link with a subject + body from a data object
+function sendMail(to, subject, fieldsObj) {
+  const lines = [];
+  for (const [label, value] of Object.entries(fieldsObj)) {
+    if (value != null && String(value).trim() !== '') {
+      lines.push(`${label}: ${value}`);
+    }
+  }
+  const body = lines.join('\n');
+  const url = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
+}
+
 function submitCommission(form) {
   const data = new FormData(form);
-  const name = encodeURIComponent(data.get('name'));
-  const email = encodeURIComponent(data.get('email'));
-  const type = encodeURIComponent(data.get('type'));
-  const details = encodeURIComponent(data.get('details'));
-  const to = 'hello@wolfpastrystudio.com'; // update if needed
-  const subject = encodeURIComponent(`[Commission] ${decodeURIComponent(type)} — ${decodeURIComponent(name)}`);
-  const body = encodeURIComponent(
-    `Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\nType: ${decodeURIComponent(type)}\n\nDetails:\n${decodeURIComponent(details)}`
+  const fields = {
+    'Name': data.get('name'),
+    'Email': data.get('email'),
+    'Commission Type': data.get('type'),
+    'Details / References': data.get('details')
   );
-  const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
-  const statusEl = document.getElementById('formStatus');
-  if (statusEl) statusEl.textContent = 'Opening your email client...';
-  window.location.href = mailto;
+  const subject = `[Commission] ${data.get('type') || ''} — ${data.get('name') || ''}`;
+  sendMail(CONTACT_ALIASES.commissions, subject, fields);
+  const status = document.getElementById('formStatus');
+  if (status) status.textContent = 'Opening your email app...';
+  return false; // prevent page reload
+}
+
+function submitContact(form) {
+  const data = new FormData(form);
+  const reason = data.get('reason') || 'general';
+
+  // choose the alias based on reason
+  const to =
+    reason === 'commission' ? CONTACT_ALIASES.commissions :
+    reason === 'merch' ? CONTACT_ALIASES.merch :
+    CONTACT_ALIASES.hello;
+
+  const subject =
+    reason === 'commission' ? `[Commission Inquiry] ${data.get('name') || ''}` :
+    reason === 'merch' ? `[Merch Question] ${data.get('name') || ''}` :
+    `[Inquiry] ${data.get('name') || ''}`;
+
+  const fields = {
+    'Name': data.get('name'),
+    'Email': data.get('email'),
+    'Reason': reason,
+    'Message': data.get('message')
+  };
+
+  sendMail(to, subject, fields);
+  const status = document.getElementById('contactStatus');
+  if (status) status.textContent = 'Opening your email app...';
+  return false;
+}
+
+function submitMerch(form) {
+  const data = new FormData(form);
+  const subject = `[Merch Interest] ${data.get('email') || ''}`;
+  const fields = {
+    'Email': data.get('email'),
+    'Interest': data.get('interest')
+  };
+  sendMail(CONTACT_ALIASES.merch, subject, fields);
+  const status = document.getElementById('merchStatus');
+  if (status) status.textContent = 'Opening your email app...';
   return false;
 }
 
