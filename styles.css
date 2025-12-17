@@ -134,36 +134,39 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a:hover { background: #1a2230; }
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
 
-/* --- Responsive nav using your classes (.nav / .nav-list / .nav-toggle) --- */
-
-/* Desktop */
-.nav { display: flex; align-items: center; gap: 16px; }
-.nav-toggle { display: none; }
-.nav-list { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
-
-/* Mobile */
+/* === Mobile nav toggle: final override === */
 @media (max-width: 900px) {
-  .nav { position: relative; }
-  .nav-toggle {
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    margin-left: auto; padding: 8px 10px; cursor: pointer;
-    background: transparent; border: 0; font-size: 20px;
-  }
-  .nav-list {
-    display: none;                 /* hidden until opened */
-    position: absolute;
-    top: 100%; right: 0; left: 0;
+  /* Hide menu by default on mobile */
+  #nav .nav-list { 
+    display: none !important;
+    position: absolute; top: 100%; right: 0; left: 0;
     background: var(--card);
-    border: 1px solid #223049;
-    border-radius: 12px;
-    padding: 8px;
-    flex-direction: column;
-    gap: 6px;
+    border: 1px solid #223049; border-radius: 12px;
+    padding: 8px; margin: 0;
+    flex-direction: column; gap: 6px;
     z-index: 1000;
+    list-style: none;
   }
-  .nav.open .nav-list { display: flex; }       /* show when toggled */
-  .nav-list a { display: block; padding: 10px; border-radius: 8px; }
-  .nav-list a:hover { background: #1a2230; }
+
+  /* Show when nav is open */
+  #nav.open .nav-list { display: flex !important; }
+
+  /* Button visible on mobile */
+  #nav .nav-toggle {
+    display: inline-flex !important;
+    align-items: center; justify-content: center;
+    margin-left: auto; padding: 8px 10px;
+    background: transparent; border: 0; font-size: 20px; cursor: pointer;
+  }
 }
+
+/* Desktop layout (kept simple) */
+@media (min-width: 901px) {
+  #nav { display: flex; align-items: center; gap: 16px; }
+  #nav .nav-toggle { display: none !important; }
+  #nav .nav-list { display: flex !important; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  #nav .nav-list a { padding: 10px; border-radius: 8px; }
+  #nav .nav-list a:hover { background: #1a2230; }
+}
+
 
