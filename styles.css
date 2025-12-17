@@ -134,39 +134,51 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a:hover { background: #1a2230; }
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
 
-/* === Mobile nav toggle: final override === */
+/* Mobile menu: fixed to viewport so it isn't clipped by the header */
+:root { --header-h: 64px; } /* adjust if your header is taller */
+
 @media (max-width: 900px) {
-  /* Hide menu by default on mobile */
-  #nav .nav-list { 
-    display: none !important;
-    position: absolute; top: 100%; right: 0; left: 0;
-    background: var(--card);
-    border: 1px solid #223049; border-radius: 12px;
-    padding: 8px; margin: 0;
-    flex-direction: column; gap: 6px;
-    z-index: 1000;
-    list-style: none;
-  }
+  .site-header { position: sticky; top: 0; z-index: 900; }
 
-  /* Show when nav is open */
-  #nav.open .nav-list { display: flex !important; }
-
-  /* Button visible on mobile */
+  #nav { position: relative; z-index: 1000; }
   #nav .nav-toggle {
     display: inline-flex !important;
     align-items: center; justify-content: center;
     margin-left: auto; padding: 8px 10px;
     background: transparent; border: 0; font-size: 20px; cursor: pointer;
   }
+
+  /* hidden by default on mobile */
+  #nav .nav-list {
+    display: none !important;
+
+    /* KEY CHANGES */
+    position: fixed;                         /* escape header clipping */
+    top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    margin: 0 8px;                           /* small side gutters */
+    background: var(--card);
+    border: 1px solid #223049; border-radius: 12px;
+    padding: 8px;
+    flex-direction: column; gap: 6px;
+    list-style: none;
+    max-height: calc(100vh - var(--header-h) - 24px);
+    overflow: auto;
+    z-index: 2000;                           /* above embeds/iframes */
+    box-shadow: 0 12px 40px rgba(0,0,0,.55);
+  }
+
+  /* show when toggled */
+  #nav.open .nav-list { display: flex !important; }
+
+  /* link styling in the dropdown */
+  #nav .nav-list a { display: block; padding: 12px; border-radius: 8px; }
+  #nav .nav-list a:hover { background: #1a2230; }
 }
 
-/* Desktop layout (kept simple) */
+/* Desktop keeps the inline list */
 @media (min-width: 901px) {
   #nav { display: flex; align-items: center; gap: 16px; }
   #nav .nav-toggle { display: none !important; }
   #nav .nav-list { display: flex !important; gap: 12px; margin: 0; padding: 0; list-style: none; }
-  #nav .nav-list a { padding: 10px; border-radius: 8px; }
-  #nav .nav-list a:hover { background: #1a2230; }
 }
-
-
