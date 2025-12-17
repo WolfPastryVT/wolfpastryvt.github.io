@@ -133,3 +133,31 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a { display: block; padding: 8px 10px; border-radius: 8px; color: var(--text); text-decoration: none; }
 .section-nav a:hover { background: #1a2230; }
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
+
+/* Desktop default *
+.nav { display: flex; align-items: center; gap: 16px; }
+.nav-toggle { display: none; }
+.nav-list { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }/
+
+/* Mobile behavior */
+@media (max-width: 900px) {
+  .nav { position: relative; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; padding: 8px 10px; }
+  .nav-list {
+    display: none;                      /* hidden until open */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--card);
+    border: 1px solid #223049;
+    border-radius: 12px;
+    padding: 8px;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;                      /* ensure above embeds */
+  }
+  .nav.open .nav-list { display: flex; } /* show when open */
+  .nav-list a { display: block; padding: 10px; border-radius: 8px; }
+  .nav-list a:hover { background: #1a2230; }
+}
