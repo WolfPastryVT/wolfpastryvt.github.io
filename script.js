@@ -1,10 +1,31 @@
 // Minimal JS: nav toggle, year, and mailto fallback for commissions
 function toggleNav() {
   const nav = document.getElementById('nav');
-  const btn = nav.querySelector('.nav-toggle');
   const isOpen = nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded', String(isOpen));
+  const btn = nav.querySelector('.nav-toggle');
+  if (btn) btn.setAttribute('aria-expanded', String(isOpen));
 }
+
+// Close the menu when clicking outside or pressing Esc (nice UX)
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  if (nav.classList.contains('open') && !nav.contains(e.target)) {
+    nav.classList.remove('open');
+    const btn = nav.querySelector('.nav-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const nav = document.getElementById('nav');
+    if (nav && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      const btn = nav.querySelector('.nav-toggle');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('year');
