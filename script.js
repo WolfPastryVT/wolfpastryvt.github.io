@@ -1,7 +1,8 @@
 // Minimal JS: nav toggle, year, and mailto fallback for commissions
 function toggleNav() {
-  const list = document.querySelector('.nav-list');
-  const isOpen = list.classList.toggle('show');
+  const nav = document.getElementById('nav');
+  const btn = nav.querySelector('.nav-toggle');
+  const isOpen = nav.classList.toggle('open');
   btn.setAttribute('aria-expanded', String(isOpen));
 }
 
