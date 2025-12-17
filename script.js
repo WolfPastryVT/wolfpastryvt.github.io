@@ -60,7 +60,7 @@ function submitCommission(form) {
     'Email': data.get('email'),
     'Commission Type': data.get('type'),
     'Details / References': data.get('details')
-  
+  });
   const subject = `[Commission] ${data.get('type') || ''} — ${data.get('name') || ''}`;
   sendMail(CONTACT_ALIASES.commissions, subject, fields);
   const status = document.getElementById('formStatus');
