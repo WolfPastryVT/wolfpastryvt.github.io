@@ -135,48 +135,52 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
 
 /* Mobile menu: fixed to viewport so it isn't clipped by the header */
-:root { --header-h: 64px; } /* adjust if your header is taller */
+:root { --header-h: 64px; } /* adjust to your header height */
 
 @media (max-width: 900px) {
+  /* keep header above content */
   .site-header { position: sticky; top: 0; z-index: 900; }
 
-  #nav { position: relative; z-index: 1000; }
+  /* show the hamburger on mobile */
   #nav .nav-toggle {
     display: inline-flex !important;
     align-items: center; justify-content: center;
-    margin-left: auto; padding: 8px 10px;
+    margin-left: auto;
+    padding: 8px 10px;
     background: transparent; border: 0; font-size: 20px; cursor: pointer;
   }
 
-  /* hidden by default on mobile */
+  /* RIGHT-ALIGNED DROPDOWN anchored to the hamburger */
   #nav .nav-list {
     display: none !important;
 
-    /* KEY CHANGES */
     position: fixed;                         /* escape header clipping */
     top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
-    left: 0; right: 0;
-    margin: 0 8px;                           /* small side gutters */
+    right: 8px;                               /* anchor to right edge */
+    left: auto;                               /* don't stretch left */
+
+    width: min(320px, calc(100vw - 16px));    /* tidy width on phones */
     background: var(--card);
     border: 1px solid #223049; border-radius: 12px;
-    padding: 8px;
-    flex-direction: column; gap: 6px;
+    padding: 8px; margin: 0;
     list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+
     max-height: calc(100vh - var(--header-h) - 24px);
     overflow: auto;
-    z-index: 2000;                           /* above embeds/iframes */
+    z-index: 2000;
     box-shadow: 0 12px 40px rgba(0,0,0,.55);
+    text-align: left;
   }
 
   /* show when toggled */
   #nav.open .nav-list { display: flex !important; }
 
-  /* link styling in the dropdown */
   #nav .nav-list a { display: block; padding: 12px; border-radius: 8px; }
   #nav .nav-list a:hover { background: #1a2230; }
 }
 
-/* Desktop keeps the inline list */
+/* Desktop unchanged */
 @media (min-width: 901px) {
   #nav { display: flex; align-items: center; gap: 16px; }
   #nav .nav-toggle { display: none !important; }
