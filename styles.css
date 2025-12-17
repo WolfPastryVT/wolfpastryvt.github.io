@@ -134,10 +134,10 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a:hover { background: #1a2230; }
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
 
-/* Desktop default *
+/* Desktop default */
 .nav { display: flex; align-items: center; gap: 16px; }
 .nav-toggle { display: none; }
-.nav-list { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }/
+.nav-list { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
 
 /* Mobile behavior */
 @media (max-width: 900px) {
