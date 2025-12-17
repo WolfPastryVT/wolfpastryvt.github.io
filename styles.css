@@ -134,30 +134,36 @@ input:focus, textarea:focus, select:focus { border-color: var(--accent); box-sha
 .section-nav a:hover { background: #1a2230; }
 .section-nav a.active { outline: 2px solid var(--accent); background: #1a2230; }
 
-/* Desktop default */
+/* --- Responsive nav using your classes (.nav / .nav-list / .nav-toggle) --- */
+
+/* Desktop */
 .nav { display: flex; align-items: center; gap: 16px; }
 .nav-toggle { display: none; }
 .nav-list { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
 
-/* Mobile behavior */
+/* Mobile */
 @media (max-width: 900px) {
   .nav { position: relative; }
-  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; padding: 8px 10px; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    margin-left: auto; padding: 8px 10px; cursor: pointer;
+    background: transparent; border: 0; font-size: 20px;
+  }
   .nav-list {
-    display: none;                      /* hidden until open */
+    display: none;                 /* hidden until opened */
     position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
+    top: 100%; right: 0; left: 0;
     background: var(--card);
     border: 1px solid #223049;
     border-radius: 12px;
     padding: 8px;
     flex-direction: column;
     gap: 6px;
-    z-index: 1000;                      /* ensure above embeds */
+    z-index: 1000;
   }
-  .nav.open .nav-list { display: flex; } /* show when open */
+  .nav.open .nav-list { display: flex; }       /* show when toggled */
   .nav-list a { display: block; padding: 10px; border-radius: 8px; }
   .nav-list a:hover { background: #1a2230; }
 }
+
