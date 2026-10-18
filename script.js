@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Contact aliases (edit if you change addresses)
 const CONTACT_ALIASES = {
-  hello: 'hello@wolfpastrystudio.com',
-  commissions: 'commissions@wolfpastrystudio.com',
-  merch: 'merch@wolfpastrystudio.com'
+  hello: 'wolfpastrystudio@gmail.com',
+  commissions: 'wolfpastrystudio@gmail.com',
+  merch: 'wolfpastrystudio@gmail.com'
 };
 
 // Build and launch a mailto link with a subject + body from a data object
